@@ -1,0 +1,273 @@
+<html>
+<head>
+
+
+
+<script type="text/javascript">
+
+
+function heading() {
+var title = prompt("Enter session title", "");
+document.getElementById('title').innerHTML = title;
+}
+
+
+function writeMonday() 
+{
+var inpA = prompt("Enter exercise name", "bench press");
+var inpB = prompt("Enter sets", "3");
+var inpC = prompt("Enter reps", "5");
+var inpF = prompt("Enter load(s)", "(AHAP)");
+var inpD = prompt("Enter rest interval", "2:00");
+var inpE = prompt("Enter details", "n/a");
+var name = inpA;
+var sets = inpB;
+var reps = inpC;
+var rest = inpD;
+var details = inpE;
+var load = inpF
+	
+function Exercise(name, sets, reps, rest, details)
+{
+this.name = inpA;
+this.sets = inpB;
+this.reps = reps;
+this.rest = rest;
+this.details = details;
+
+}
+			
+var para = document.createElement("P");
+para.style.color = "#fff";
+para.style.fontSize = "20px";
+para.style.fontFamily = "arial";
+para.style.borderStyle = "solid";
+para.style.borderColor = "#fff";
+para.style.borderSize = "1px";
+para.style.borderType = "solid";
+para.style.borderRadius = "10px";
+para.style.padding = "10px";
+para.style.margin = "5px";
+para.style.textAlign = "left";
+para.class = "eBlock";
+
+var count = document.getElementsByTagName('P').length;
+document.getElementById('out').innerHTML = count;
+
+var identifier = count+10;
+para.id = "eblock" + identifier; 
+para.innerHTML = "<bdi style='text-transform:uppercase;'>" + "<b>" + name + "</b>" + "</bdi>" + "<br>" + "<bdi style='font-size:16px'>" + sets + " x " + reps + " " + " @ " + load + "</bdi>" + "<br>" + "<bdi style='font-size:14px'>" + "Rest interval: " + rest + "<br>" + "Details: " + details + "</bdi>"; 
+
+document.getElementById("outMonday").appendChild(para);
+
+var outName = name;
+var outSets = sets;
+var outReps = reps;
+var outLoad = load;
+var sumReps = sets*reps;
+document.getElementById('out2').innerHTML += name + " " + "repetitions total: " + sumReps + "<br>";
+
+}
+
+
+
+function moveSplit()
+{
+
+var nw = window.open("file:///C:/Users/kelse/Desktop/js%20functions/split.html", "_self", "");
+var txt = document.getElementById('bdy');
+var copy = txt.cloneNode(true);
+nw.document.write("<body style='background-color:#282828;color:#fff;'>");
+nw.document.write("<title>Weekly Split</title>");
+nw.document.write("<p id='here' style='font-family:arial;'></p>");
+nw.document.getElementById('here').appendChild(copy);
+
+}
+
+
+function copySplit()
+{
+
+var txt = document.getElementById('bdy');
+var copy = txt.cloneNode(true);
+document.getElementById('cop').appendChild(copy);
+
+
+}
+
+function initSession() {
+var title = prompt("Enter session title", "Day 1/Chest day/etc");
+var num = prompt("enter the number of exercises");
+
+
+for (let i = 1; i <= num; i++) {
+
+
+
+
+var para = document.createElement("P");
+para.style.color = "#fff";
+para.style.fontSize = "20px";
+para.style.fontFamily = "arial";
+para.style.borderStyle = "solid";
+para.style.borderColor = "#fff";
+para.style.borderSize = "1px";
+para.style.borderType = "solid";
+para.style.borderRadius = "10px";
+para.style.padding = "10px";
+para.style.margin = "5px";
+para.style.textAlign = "left";
+para.id = "exercise" + i;
+para.innerHTML = "<a style='text-decoration:none;' href='' onclick='writeMonday()'>" + "EXERCISE " + i + "</a>";
+document.getElementById("outMonday").appendChild(para);
+
+
+
+
+
+
+var inpA = prompt("Enter exercise name", "bench press");
+var inpB = prompt("Enter sets", "3");
+var inpC = prompt("Enter reps", "5");
+var inpF = prompt("Enter load(s)", "(AHAP)");
+var inpD = prompt("Enter rest interval", "2:00");
+var inpE = prompt("Enter details", "n/a");
+var name = inpA;
+var sets = inpB;
+var reps = inpC;
+var rest = inpD;
+var details = inpE;
+var load = inpF
+para.innerHTML += "<bdi style='text-transform:uppercase;'>" + "<b>" + name + "</b>" + "</bdi>" + "<br>" + "<bdi style='font-size:16px'>" + sets + " x " + reps + " " + " @ " + load + "</bdi>" + "<br>" + "<bdi style='font-size:14px'>" + "Rest interval: " + rest + "<br>" + "Details: " + details + "</bdi>"; 
+
+
+
+
+}
+
+
+
+
+
+
+
+}
+
+
+function testFunc() {
+document.getElementById('exercise2').innerHTML += "some more info...";
+
+
+
+
+
+}
+
+
+
+
+
+</script>
+
+
+<style>
+th.standard 
+{
+width:100px;
+text-align:center;
+
+
+
+
+
+}
+
+td.standard 
+{
+width:100px;
+text-align:center;
+
+
+
+
+
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+</head>
+<body id="" style="margin:20px;font-family:arial;font-size:18px;text-align:center;background-color:#282828;color:#fff;">
+
+<div id="cop">
+
+<button type="button" onclick="copySplit()">copy</button>
+<button type="button" onclick="moveSplit()">save split</button>
+<button type="button" onclick="heading()">session title</button>
+<button type="button" onclick="initSession()">new session</button>
+<button type="button" onclick="testFunc()">test</button>
+
+
+
+<p id="out" hidden=""></p>
+<p id="out2"></p>
+
+
+
+
+</div>
+
+<br>
+<br>
+
+
+<div style="height:30px;width:;"><button type="button" onclick="writeMonday();">(+) add new exercise</button></div>
+
+
+
+<div id="bdy" style="width:;font-family:arial;font-size:18px;text-align:center;">
+
+<div style="height:;">
+<h2 id="title">(TITLE)</h2>
+<div id="outMonday" style="margin-top:0px;margin-bottom:0px;margin-left:auto;margin-right:auto;height:;width:500px;text-align:center;">
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
